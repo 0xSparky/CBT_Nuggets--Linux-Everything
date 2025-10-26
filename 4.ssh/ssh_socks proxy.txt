@@ -1,0 +1,16 @@
+- Quick and dirty vpn for browser
+- Location hacking
+- Coffee shop peace of mind 
+
+[-D [bind_address:]port]
+
+$ ssh -D 9000 user@remote-server
+
+we can redirect out network traffic by using user@remote-server securely with ssh
+with this command we will pass our traffic through internet  securely and 
+disguise ourself as user@remote-server to internet
+
+after this command we need to change our browser's proxy settings
+# socks_host to localhost and port to 9000
+by doing this our network traffic will go through 
+ brower ==> localhost ==> user@remote-server  ==> internet

@@ -1,0 +1,13 @@
+#!/bin/bash
+
+echo "Give me Two Number:"
+
+read NUM1
+read NUM2
+
+echo "The sum is " 
+
+SUM=`expr $NUM1 + $NUM2`
+
+
+echo $SUM is the answer

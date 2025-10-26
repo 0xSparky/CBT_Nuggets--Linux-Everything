@@ -1,0 +1,28 @@
+to generate a ssh key pairs ==> ssh-keygen
+it will generate a pair of ssh keys (private and public) in ~/.ssh directory
+
+never share ssh private keys with anyone
+
+to share ssh public key ==> ssh-copy-id -i ~/.ssh/key.pub  user@remote-host
+user => the user of the remote machine
+remote-host => remote machine's ip address
+ it will ask for that users password
+
+
+## ssh-agent
+
+generate your ssh keys with passphrase. By doing this nobody can harm the system by stealing it
+
+when using ssh-key with passpharase , everytime it will ask for passphrase when to connect
+
+to get rid of this hassle, we use ssh-agent
+
+$ssh-agent bash
+
+this command will open a new bash sub-terminal with ssh-agent on 
+we will use that terminal for ssh connection
+we need to put the passphrase for one time when connecting to remote-host for the first time in that sub shell
+
+when we want a break, we simply  exit that sub terminal and our cache login passphrase will be gone
+
+

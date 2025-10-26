@@ -1,0 +1,12 @@
+
+$ autossh [-V] [-M monitor_port[:echo_port]] [-f] [SSH_OPTIONS]
+
+# -M specifies monitor port. [the port it's going to use and port+1 for the echo port]
+# -f run in background (autossh handles this, and does not pass it to ssh.)
+# -V print autossh version and exit.
+
+$ autossh -M 10000 -f -N -L 8000:localhost:8080 user@remote-host
+
+# -M 10000 is the monitor port and 10001 is the echo port
+# -N for not interactive ssh connection
+# and the rest are same as normal forward, reverse tunneling 

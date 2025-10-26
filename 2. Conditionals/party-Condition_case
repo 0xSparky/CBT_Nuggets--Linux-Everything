@@ -1,0 +1,20 @@
+#!/bin/bash
+
+echo "What is your name?"
+read NAME
+
+case $NAME in
+
+"Tom")
+    echo "Hi Tom, you might have been there."
+;;
+"Bob")
+    echo "Glad you could make it buddy"
+;;
+"Martha")
+    echo "Hi $NAME, can you really dance"
+;;
+*)
+    echo "You weren't there dude"
+;;
+esac

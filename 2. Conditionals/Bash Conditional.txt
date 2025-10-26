@@ -1,0 +1,32 @@
+Comparison Operators:
+if ["$x" -eq "$y"] (if $x is equal to $y stataement is true)
+
+-eq (equal to)
+-ne (not equal to)
+-gt (greater than)
+-ge (greater than or equal to)
+-lt (less than)
+-le (less than or equal to)
+
+String Comparisons:
+if [$str1 == $str2] (if str1 is the same as str2)
+
+== (if the two strings are the same)
+!= (if the two strings are not the same)
+-z (if the string is NULL [ -z $str1 ])
+-n (if the string is not NULL)
+
+File test:
+NOTE: FILE can be file path, or string variable containing file path
+if [ -a FILE] ( true if file exists)
+
+-a (FILE exists)
+-e (FILE exists, same as -a)
+-d (FILE exists and is a directory)
+-f (FILE exists and is a regular file, not directory or link, etc)
+-h (FILE exists and is a symbolic link)
+-l (FILE exists and is a symbolic link, same as -h)
+-r (FILE exists and is readbale by script)
+-w (FILE exists and is writable by script)
+-x (FILE exists and is executable by script)
+-s (FILE exists and ha a size greaterthan zero)

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+for x in 1 2 3 4 5 6 7 8 9
+do
+	echo "Number $x"
+done
+
+for y in {1..10}
+do
+	echo $y
+done
+
+
+for z in {1..10..2}
+do
+	echo "odd Number $z"
+done
+
+for i in fish chicken puppy tuna
+do
+	echo "$i"
+done

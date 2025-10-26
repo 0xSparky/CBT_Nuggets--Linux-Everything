@@ -1,0 +1,12 @@
+TCP only, vpn  with SShuttle   
+
+- no proxy config
+- routes non-web traffic
+- no udp support
+
+with ssh tunneling we can tunnel a single port's traffice to another port however
+if we want to connect an entire internal network with a single ssh connection we use ssshuttle
+
+# sudo sshuttle [options] -r [username@]sshserver[:port] <subnets …>
+
+# sudo sshuttle -r user@remote-host:2222 0.0.0.0/0

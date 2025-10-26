@@ -1,0 +1,82 @@
+from local workstation to remote-host ==> forward tunneling
+
+from remote host to local machine ==> reverse tunneling
+
+
+
+ssh forward tunneling means we connect from host device to remote device through ssh
+and use that connection to access local service or another service that is running or
+or can access by the remote host
+
+       -L [bind_address:]port:host:hostport
+       -L [bind_address:]port:remote_socket
+       -L local_socket:host:hostport
+       -L local_socket:remote_socket
+
+
+$ ssh -L bind_address:port:host:hostport user@remote-host
+
+$ ssh -L localhost:8000:localhost:80 john@192.168.1.212
+
+$ ssh -L 8000:localhost:80 john@192.168.1.212 # if we use localhost for binding
+address we don't need to write it
+ 
+it will ask for johns password to make the tunnel
+the command means that we will be listening on localhost:8000 
+
+we are redirecting  localhost:80 from the remote server to localhost:8000
+
+this means we are using that bind address in our local machine that john is able to use in the remote-host
+
+$ ssh -L localhost:8000:192.168.1.119:80 john@192.168.1.212
+
+we are redirecting 192.168.1.119:80 to our localhost:8000 address as john
+
+
+after the command is successfull, we will be login as john in the remote server
+with an interactive shell
+
+if we don't want a interactive shell:
+
+-N      Do not execute a remote command.  This is useful for just forwarding ports.
+
+$ ssh -N -L 8000:localhost:80 john@192.168.1.212
+
+it will give us a non-interactive shell
+
+
+##  reverse tunneling ##
+
+it connect from remote-host to local machine and redirect the remote-host address to local address
+
+$ ssh -R local_address:port:host_address:port user@local_workstation
+
+$ ssh -R 9999:localhost:3395 john@home
+
+it means the remote-machine is binding it's local address localhost:3395 with john@home's localhost:9999 by login as john in his home machine from remote-host
+
+
+bob - a user from  far away
+john - remote host who has a  firewall that never accept any incoming connection but let john to go outside
+martha - a normal user who is really normal
+
+remote-host john who has firewall by which any connection from outside can't reach
+john but john can connect outside from inside
+
+bob wants to connect to john to access john's local networks server but he can't bypass the firewall
+
+so bob tells john to make a reverse  sshl tunnel of that local network server address which is running on port 8000 to martha's localhost port 4000
+
+$ssh -R 4000:localhost:8000 martha@martha's_server
+
+it will bind john's localhost:8000 to martha's localhost:4000 by login as martha's server as martha from john
+
+then bob will use a forward tunnel to fetch that address from martha on port 3000 by login as martha on martha's server from bob's machine
+
+$ssh -L 3000:localhost:8000 martha@martha's_server
+
+
+this way bob connect to that specific server that runs on john's local network without direct interaction
+
+john ==> reverse tunnel that service to martha ==> by remote login in martha's server
+bob ==> forward tunnel that service from martha ==> by remote login in martha's werver

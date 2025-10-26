@@ -1,0 +1,17 @@
+#!/bin/bash
+
+echo "What is your name?"
+read NAME
+
+if [ $NAME = 'Bob' ]
+then
+    echo "You might have been at the party, $NAME"
+elif [ $NAME = 'Tom' ]
+then
+    echo "You might have been a the party, $NAME"
+elif [ $NAME = 'Martha' ]
+then
+    echo "You might have been a the party, $NAME"
+else
+    echo "Didn't saw you there..."
+fi

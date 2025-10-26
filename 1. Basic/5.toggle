@@ -1,0 +1,10 @@
+#!/bin/bash
+
+MYFILE="./file.txt"
+
+if [ -a $MYFILE ]
+then
+	rm $MYFILE
+else
+	touch $MYFILE
+fi

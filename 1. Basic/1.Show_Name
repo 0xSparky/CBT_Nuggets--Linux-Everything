@@ -1,0 +1,10 @@
+#!/bin/bash
+
+echo "Inter your First Name:"
+read FirstName
+
+echo "Inter your Sure Name:"
+read SureName
+
+
+echo "Hello $FirstName $SureName"

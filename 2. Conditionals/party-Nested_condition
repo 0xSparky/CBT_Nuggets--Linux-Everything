@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "What is your name?"
+read NAME
+
+if [ $NAME = 'Bob' ]
+then
+    echo "You might have been at the party, $NAME"
+else
+    if [ $NAME = 'Tom' ]
+    then
+        echo "You might have been a the party, $NAME"
+    else
+        if [ $NAME = 'Martha' ]
+        then
+            echo "You might have been a the party, $NAME"
+        else
+            echo "You were probably not at the party, unless you lied about your name."
+        fi
+    fi
+fi

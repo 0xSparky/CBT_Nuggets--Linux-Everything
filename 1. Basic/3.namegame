@@ -1,0 +1,14 @@
+#!/bin/bash
+
+
+echo "Write down two name:"
+read name
+read name2
+
+if [ $name == $name2 ]
+then
+	echo "same name"
+else
+	echo "not same name"
+fi
+

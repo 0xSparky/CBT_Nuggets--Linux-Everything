@@ -1,0 +1,14 @@
+#!/bin/bash
+
+BEST="Pizza"
+
+echo "Can you guess the best food?"
+read GUESS
+
+until [ $GUESS == $BEST ]
+do
+    echo "Guess Again"
+    read GUESS
+done
+
+echo "Yay! You guessed the correct answer!"
